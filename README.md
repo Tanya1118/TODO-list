@@ -42,7 +42,7 @@ MongoDB Atlas account
 Clone the Repository
 bash
 Copy code
-git clone https://github.com/yourusername/to-do-list.git
+git clone [https://github.com/yourusername/to-do-list.git](https://github.com/Tanya1118/TODO-list.git)
 cd to-do-list
 # # Backend Installation
 Navigate to the backend directory:
