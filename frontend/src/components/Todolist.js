@@ -15,7 +15,7 @@ const TodoList = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/tasks');
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/tasks`);
             setTasks(response.data);
         } catch (error) {
             console.error('Error fetching tasks:', error);
@@ -26,7 +26,7 @@ const TodoList = () => {
     const addTask = async () => {
         if (!newTask) return; // Prevent adding empty tasks
         try {
-            const response = await axios.post('http://localhost:5000/tasks', { title: newTask });
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tasks`, { title: newTask });
             setTasks([...tasks, response.data]);
             setNewTask(''); // Clear input field after adding
         } catch (error) {
