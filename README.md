@@ -82,4 +82,4 @@ PUT	/api/tasks/:id	Update an existing task
 DELETE	/api/tasks/:id	Delete a task
 PATCH	/api/tasks/:id/toggle	Toggle completion status
 # #Deployment
-This application is deployed on Vercel. You can access it here.
+This application is deployed on Vercel and backend on Render. You can access it https://todo-list-frontend-omega.vercel.app/.
