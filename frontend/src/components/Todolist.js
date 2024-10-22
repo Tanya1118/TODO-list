@@ -44,7 +44,7 @@ const TodoList = () => {
     const updateTask = async () => {
         if (!editTaskTitle) return; // Prevent updating with empty title
         try {
-            const response = await axios.put(`http://localhost:5000/tasks/${editTaskId}`, { title: editTaskTitle });
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/${editTaskId}`, { title: editTaskTitle });
             setTasks(tasks.map(task => (task._id === editTaskId ? response.data : task)));
             closeModal(); // Close modal after updating
         } catch (error) {
@@ -61,7 +61,7 @@ const TodoList = () => {
     // Delete a task
     const deleteTask = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/tasks/${id}`);
+            await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/${id}`);
             setTasks(tasks.filter(task => task._id !== id)); // Remove from UI
         } catch (error) {
             console.error('Error deleting task:', error);
@@ -71,7 +71,7 @@ const TodoList = () => {
     // Toggle task completion
     const toggleComplete = async (id, completed) => {
         try {
-            const response = await axios.put(`http://localhost:5000/tasks/${id}`, { completed: !completed });
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/${id}`, { completed: !completed });
             setTasks(tasks.map(task => (task._id === id ? response.data : task))); // Update UI
         } catch (error) {
             console.error('Error toggling task completion:', error);
