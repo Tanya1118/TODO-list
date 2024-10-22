@@ -8,7 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow all origins
+    methods: 'GET,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
+    credentials: true // Enable cookies to be sent with requests
+}));
 app.use(bodyParser.json());
 
 // MongoDB connection (replace with your MongoDB connection string)
